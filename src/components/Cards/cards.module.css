@@ -1,0 +1,28 @@
+.box {
+    margin: 0 auto;
+    width: 400px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    font-size: 23px;
+    margin-right: 40px;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 10px 15px;
+    background-color: rgb(237, 236, 236);
+    border: 1px solid rgb(100, 174, 84);
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background-color: aliceblue;
+}

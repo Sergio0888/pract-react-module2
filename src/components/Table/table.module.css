@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+.list {
+    list-style: none;
+}
+.item {
+    padding: 9px 15px;
+    margin-bottom: 1px;
+    background: #61AF6A;
+    color: #FFF;
+    position: relative;
+    border: solid #61AF6A;
+    border-width: 2px 0 2px 2px;
+    border-radius: 5px 0 0 5px;
+    text-align: center;
+
+
+
+    cursor: pointer;
+}
+.active {
+    cursor: default;
+    background: #FFF;
+    color: #000;
+    border-color: #7DCA86;
+}
+.active::after {
+    content: '';
+    position: absolute;
+    left: auto;
+    top: 0;
+    right: -2px;
+    bottom: 0;
+    width: 2px;
+    height: auto;
+    background-color: #fff;
+}
+
+.text {
+  background: #FFF;
+  width: 500px;
+  border: 2px solid #7DCA86;
+  border-radius: 0 5px 5px 5px;
+  padding: 7px 15px;
+
+  overflow: hidden;
+}
