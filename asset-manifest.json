@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pract-react-module2/static/css/main.fec6061a.css",
+    "main.js": "/pract-react-module2/static/js/main.27fbfd48.js",
+    "index.html": "/pract-react-module2/index.html",
+    "main.fec6061a.css.map": "/pract-react-module2/static/css/main.fec6061a.css.map",
+    "main.27fbfd48.js.map": "/pract-react-module2/static/js/main.27fbfd48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fec6061a.css",
+    "static/js/main.27fbfd48.js"
+  ]
+}
