@@ -1,44 +1,35 @@
-import { Component } from "react";
+import { useState } from "react";
 import data from "../../Data/tabldata";
 import Tablitem from "./Tablitem";
 
-import styles from "./table.module.css"
+import styles from "./table.module.css";
 
-class Tabllist extends Component {
+const Tabllist = () => {
+    const [ state, setState ] = useState([...data]);
 
-    state = {
-        tabs: data
-    }
-
-    handleClick = ({target}) => {
+    const handleClick = ({target}) => {
         const result = target.textContent;
-        this.setState({
-
-          tabs: this.state.tabs.map(elem => elem.title === result ?
+        setState(prevState => {
+        const newArray = prevState.map(elem => elem.title === result ?
              { ...elem, active: true } : { ...elem, active: false })
+        return newArray;
         })
-    }
+    };
 
-    render() {
-        const { handleClick } = this;
-        const { tabs } = this.state; 
+    const elem = state.map(({title, active}) => 
+    <li className={active ? `${styles.active} ${styles.item}` : styles.item} 
+    onClick={handleClick} 
+    key={title}>{title}</li>)
 
-        const elem = tabs.map(({title, active}) => 
-        <li className={active ? `${styles.active} ${styles.item}` : styles.item} 
-        onClick={handleClick} 
-        key={title}>{title}</li>)
 
-        return (
+    return (
         <div className={styles.container}>
             <ul className={styles.list}>
                 {elem}
             </ul>
-            <Tablitem data={tabs}/>
+            <Tablitem data={state}/>
         </div>
-           
-
-        )
-    }
-}
+    )
+};
 
 export default Tabllist;

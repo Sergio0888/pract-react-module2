@@ -1,37 +1,28 @@
-import { Component } from "react";
+import { useState } from "react";
 
 import styles from "./cards.module.css";
 
-class Cards extends Component {
-    state = {
-        actors: ['Karl Urban', 'Jack Quaid', 'Antony Starr', 'Dominique McElligott']
-    }
+const Cards = () => {
+    const [ state, setState ] = useState(['Karl Urban', 'Jack Quaid', 'Antony Starr', 'Dominique McElligott']);
 
-    onClick = ({ nativeEvent }) => {
-        const { actors } = this.state;
-        const name = nativeEvent.path[1].children[0].innerHTML;
-        const filtredActors = actors.filter(item => item !== name)
-        
-        this.setState({
-            actors: filtredActors
+    const onClick = (index) => {
+        setState(prevState => {
+            const newArray = prevState.filter((item,ind) => ind !== index);
+            return newArray;
         })
     }
 
-    render() {
-        const { onClick } = this;
-        const { actors } = this.state;
+    const element = state.map((item,index) => 
+    <div key={index} className={styles.box}>
+    <p className={styles.text}>{item}</p>
+    <button onClick={() => onClick(index)} className={styles.btn} type="button">Delete</button>
+    </div>)
 
-        const element = actors.map((item,index) => 
-        <div key={index} className={styles.box}>
-        <p key={index} className={styles.text}>{item}</p>
-        <button onClick={(e) => onClick(e)} className={styles.btn} type="button">Delete</button>
-        </div>)
-
-        return (
-            <div >
-               {element}  
-            </div>
-        )}
-}
+    return (
+        <div >
+            {element}  
+        </div>
+    );
+};
 
 export default Cards;
