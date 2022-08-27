@@ -4,7 +4,7 @@ import styles from "./product.module.css";
 
 const Product = () => {
 
-    const [state, setState] = useState(["Часы, надеждные, как пружина от дивана", `Золотая цепь, "за которую" не заплатили`, "Полоченный Роллс-Ройс"])
+    const [state] = useState(["Часы, надеждные, как пружина от дивана", `Золотая цепь, "за которую" не заплатили`, "Полоченный Роллс-Ройс"])
 
     const handleClick = ({ target }) => {
         if (target.nodeName === "P") {
